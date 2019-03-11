@@ -4,6 +4,11 @@ setConditionParam(condition, CONDITION_PARAM_SKILL_DISTANCE, 5)
 setConditionParam(condition, CONDITION_PARAM_SKILL_SHIELD, -10)
 
 function onUse(cid, item, fromPosition, itemEx, toPosition)
+	if(not isPaladin(cid)) then
+		doPlayerSendCancel(cid, "Only paladins may drink this fluid.")
+	return true
+	end
+	
 	if(doAddCondition(cid, condition)) then
 		doSendMagicEffect(fromPosition, CONST_ME_MAGIC_RED)
 		doRemoveItem(item.uid)
