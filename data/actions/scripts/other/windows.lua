@@ -39,11 +39,8 @@ function onUse(cid, item, fromPosition, itemEx, toPosition)
 
 	local house, position = getHouseFromPos(fromPosition), fromPosition
 	if(not house) then
-		position.y = position.y - 1
 		house = getHouseFromPos(position)
 		if(not house) then
-			position.y = position.y + 1
-			position.x = position.x - 1
 			house = getHouseFromPos(position)
 		end
 	end
